@@ -1,4 +1,4 @@
-# Basic-Data-structure
+# Data-structure
 Recursion problem
 Bitmasking problem
 Backtracking problem
