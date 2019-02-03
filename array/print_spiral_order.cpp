@@ -45,20 +45,23 @@ void print_in_spiral(int a[][200],int row,int col){
 		}
 		e_col--;
 
-		//printing end row
-		for(int j=e_col;j>=s_col;j--){
-			cout<<a[e_row][j]<<"  ";
-			
-		}
+		//printing end row - it is printed when end row > start row
+		if(e_row>s_row){
+			for(int j=e_col;j>=s_col;j--){
+				cout<<a[e_row][j]<<"  ";
+			}
 		
-		e_row--;
+			e_row--;
+		} 
 		
-		//printing start column
-		for(int i=e_row;i>=s_row;i--){
-			cout<<a[i][s_col]<<"  ";
+		//printing start column - it is printed when end column > start column
+		if(e_col<s_col){
+			for(int i=e_row;i>=s_row;i--){
+				cout<<a[i][s_col]<<"  ";
 			
-		}
-		s_col++;
+			}
+			s_col++;
+		}	
 
 	}
 
