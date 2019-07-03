@@ -94,6 +94,37 @@ int Height(node* root){
 	return max(Heightof_left_sub_tree,Heightof_right_sub_tree) + 1;
 }
 
+void Print_kth_level(node* root,int k){
+
+	if(root == NULL){
+		return;
+	}
+
+	if(k==1){
+		cout<<root->data<<" ";
+		return;
+	}
+
+	Print_kth_level(root->left,k-1);
+	Print_kth_level(root->right,k-1);
+	return;
+}
+
+void Print_all_level(node* root){
+
+	if(root == NULL){
+		return;
+	}
+
+	int H = Height(root);
+
+	for(int i=1;i<=H;i++){
+		Print_kth_level(root,i);
+		cout<<endl;
+	}
+
+	return;
+}
 
 int main(){
 
@@ -106,6 +137,10 @@ int main(){
 	printPost(root);
 	cout<<endl;
 	cout<<"Height = "<<Height(root)<<endl;
+	//cout<<"print kth level = ";
+	//Print_kth_level(root,2);
+	Print_all_level(root);
+	cout<<endl;
 
 	return 0;
 }
