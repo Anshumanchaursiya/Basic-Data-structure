@@ -82,6 +82,18 @@ void printPost(node* root){
 
 }
 
+int Height(node* root){
+
+	if(root == NULL){
+		return 0;
+	}
+
+	int Heightof_left_sub_tree = Height(root->left);
+	int Heightof_right_sub_tree = Height(root->right);
+
+	return max(Heightof_left_sub_tree,Heightof_right_sub_tree) + 1;
+}
+
 
 int main(){
 
@@ -93,6 +105,7 @@ int main(){
 	cout<<endl<<"Postorder-> ";
 	printPost(root);
 	cout<<endl;
+	cout<<"Height = "<<Height(root)<<endl;
 
 	return 0;
 }
