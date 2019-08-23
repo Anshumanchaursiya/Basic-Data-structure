@@ -40,6 +40,14 @@ public:
 	void bfs(int src){
 
 		queue<int> q;
+		int* dist = new int[V+1]{0};
+		int* parent = new int[V+1];
+
+		//initialize all node's parent to -1
+		for(int i=0;i<V;i++){
+			parent[i] = -1;
+		}
+
 		//V is number of vertices
 		bool* visited = new bool[V+1]{0};
 
@@ -56,8 +64,16 @@ public:
 				if(!vesited[neighbour]){
 					q.push(neighbour);
 					visited[neighbour] = true;
+
+					dist[neighbour] = dist[node] + 1;
+					parent[neighbour] = node;
 				}
 			}
+		}
+
+		cout<<endl;
+		for(int i=0;i<V;i++){
+			cout<<"node "<<i<<" having distance: "<<dist[i]<<endl;
 		}
 	}
 	
